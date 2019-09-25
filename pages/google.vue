@@ -28,9 +28,13 @@
       <div class="search">
         <div class="search-box">
           <input type="text" />
-          <img src="/mic-icon.svg" class="mic-icon" />
+          <div class="voice">
+            <a href="#">
+              <img src="/mic-icon.svg" class="mic-icon" />
+              <div class="voice-input">音声で検索</div>
+            </a>
+          </div>
         </div>
-        <div class="voice-input">音声で検索</div>
       </div>
       <div class="buttons">
         <button class="search-button">Google 検索</button>
@@ -104,15 +108,12 @@ a {
         height: 30px;
         line-height: 60px;
         vertical-align: middle;
+        border-radius: 50%;
       }
 
       .app-icon {
         display: inline-block;
         background-color: gray;
-      }
-
-      .user-icon {
-        border-radius: 50%;
       }
     }
   }
@@ -122,8 +123,9 @@ a {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
+    margin-top: 150px;
 
     h1 {
       font-size: 80px;
@@ -154,6 +156,7 @@ a {
         border-radius: 30px;
         padding: 0 10px 0 20px;
         margin-top: 30px;
+        display: flex;
 
         &:hover {
           box-shadow: 0px 2px 6px #999999;
@@ -170,31 +173,39 @@ a {
           }
         }
 
-        .mic-icon {
-          position: relative;
-          top: 5px;
-          display: inline-block;
-        }
-      }
+        .voice {
+          justify-content: flex-end;
+          align-items: center;
 
-      .voice-input {
-        display: inline-block;
-        font-size: 11px;
-        background-color: #2d2d2d;
-        color: #ffffff;
-        padding: 5px;
-        border-radius: 2px;
-        position: absolute;
-        right: -10px;
+          .mic-icon {
+            margin: 5px;
+          }
 
-        &::before {
-          content: "";
-          border: 5px solid transparent;
-          border-bottom: 5px solid #2d2d2d;
-          position: absolute;
-          top: -10px;
-          right: 42%;
-          z-index: 2;
+          .voice-input {
+            visibility: hidden;
+            position: absolute;
+            font-size: 11px;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 2px;
+            position: absolute;
+            right: -4px;
+
+            &::before {
+              content: "";
+              border: 5px solid transparent;
+              border-bottom: 5px solid #2d2d2d;
+              position: absolute;
+              top: -10px;
+              right: 42%;
+              z-index: 2;
+            }
+          }
+
+          a:hover .voice-input {
+            visibility: visible;
+          }
         }
       }
     }
