@@ -99,7 +99,7 @@ a {
       margin-right: 20px;
 
       li {
-        margin: 0 10px;
+        margin: 0 8px;
       }
 
       .app-icon,
@@ -113,7 +113,14 @@ a {
 
       .app-icon {
         display: inline-block;
-        background-color: gray;
+        background-image: url(/app-icon.png);
+        background-size: 500px;
+        background-position: -124px -37px;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
